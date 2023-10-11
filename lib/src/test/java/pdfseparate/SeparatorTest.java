@@ -4,12 +4,17 @@
 package pdfseparate;
 
 import org.junit.Test;
+
+import java.io.File;
+import java.io.IOException;
+
 import static org.junit.Assert.*;
 
-public class LibraryTest {
-    @Test public void coreFunctionalityTest() {
+public class SeparatorTest {
+    @Test public void coreFunctionalityTest() throws IOException {
         File testFile = new File("C:/Users/Austin/Downloads/Orlando ASUG 10-20-23.pdf");
         PDFSeparator separator = PDFSeparator.create();
-        assertEquals(19, separator.splitPDFTest(testFile));
+        int assertionValue = 19;
+        assertEquals(assertionValue, separator.splitPDFTest(testFile));
     }
 }

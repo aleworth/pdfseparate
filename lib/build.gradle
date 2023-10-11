@@ -8,6 +8,7 @@
 plugins {
     // Apply the java-library plugin for API and implementation separation.
     id 'java-library'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 repositories {
@@ -19,15 +20,10 @@ dependencies {
     // Use JUnit test framework.
     testImplementation 'junit:junit:4.13.2'
 
-    // This dependency is exported to consumers, that is to say found on their compile classpath.
-    api 'org.apache.commons:commons-math3:3.6.1'
-
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation 'com.google.guava:guava:32.1.1-jre'
-
     // This dependency provides the module with it's primary logic - the ability to separate out PDFs
     // https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox
-    implementation group: 'org.apache.pdfbox', name: 'pdfbox', version: '2.0.29'
+    implementation 'org.apache.pdfbox:pdfbox:2.0.29'
+
 
 }
 
@@ -36,4 +32,8 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(11)
     }
+}
+
+shadowJar {
+    relocate 'org.apache', 'pdfseparate.mendix.apache'
 }
