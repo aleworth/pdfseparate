@@ -1,4 +1,4 @@
-package pdfseparate;
+package pdfseparate.mendix;
 
 import org.apache.pdfbox.multipdf.Splitter;
 import org.apache.pdfbox.pdmodel.PDDocument;
