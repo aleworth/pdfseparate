@@ -17,4 +17,11 @@ public class SeparatorTest {
         int assertionValue = 19;
         assertEquals(assertionValue, separator.splitPDFTest(testFile));
     }
+
+    @Test public void fullFunctionalityTest() throws IOException {
+        File testFile = new File("C:/Users/Austin/Downloads/Orlando ASUG 10-20-23.pdf");
+        PDFSeparator separator = PDFSeparator.create();
+        int assertionValue = 19;
+        assertEquals(assertionValue, separator.fullSplitTest(testFile));
+    }
 }
